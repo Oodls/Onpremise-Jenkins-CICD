@@ -12,6 +12,6 @@ public class ProcessController {
 	@GetMapping("/test")
 	public String reqRes() {
 		log.info("요청 수락 ~~~");
-		return "linux 서버에서 실행되는 app이 수정되어 자동 빌드/배포 했습니다.";
+		return "linux 서버에서 실행되는 app이 수정되어 자동 빌드/배포 했습니다!!!";
 	}
 }
