@@ -1,23 +1,21 @@
-실습 환경
+# 📚 실습 환경
 
-jenkins container
+## 🐳 Jenkins Container
 
-ubuntu host의 일반 폴더와 jenkins container를 bind 마운트
+🔗 Ubuntu host의 일반 폴더와 Jenkins container를 bind 마운트
 
-jar로 빌드해서 마운트된 폴더에 jar를 복사 → host의 폴더에 복사가 됨
+🏗️ JAR로 빌드해서 마운트된 폴더에 JAR를 복사 → host의 폴더에 복사가 됨
 
-host일반 폴더에 jar앱을 실행 하는 과정을 파이프라인으로 구현
+🚀 Host 일반 폴더에 JAR 앱을 실행하는 과정을 파이프라인으로 구현
 
+## 🖥️ Host 
 
-host 
-
-## 0. 실행환경 준비
-
+### 0️⃣ 실행환경 준비
 ```
 docker run --name myjenkins --privileged -p 8080:8080 -v $(pwd)/appjardir:/var/jenkins_home/appjar jenkins/jenkins:lts-jdk17
 ```
 
-### genkins public 주소 할당 
+### 🌐 Jenkins Public 주소 할당 
 - GitHub 웹훅은 GitHub에서 이벤트가 발생할 때(예: 새로운 커밋, 풀 리퀘스트 등) 지정된 URL로 HTTP 요청을 보내는 방식
 - 이 요청은 GitHub 서버에서 Jenkins 서버로 직접 전송되기 때문에, Jenkins가 외부에서 접근 가능한 public IP 또는 도메인을 가져야만 GitHub가 요청을 보낼 수 있다
 
@@ -31,6 +29,11 @@ ngrok은 로컬에서 실행 중인 애플리케이션을 안전하게 인터넷
 ngrok.exe 파일을 다운로드
 
 2. ngrok.exe 파일 실행 후 해당 터미널에 입력
+
+1. ngrok 설치
+ngrok.exe 파일을 다운로드
+
+2. ngrok.exe 파일 실행 후 해당 터미널에 입력
 ```
 ngrok config add-authtoken [토큰값]
 
@@ -38,20 +41,20 @@ ngrok http http://localhost:[jenkins 실행 포트]
 ```
 
 ![image](https://github.com/user-attachments/assets/2d9b53bd-5f29-4b11-bc6f-0644f26999ad)
+<br>
 그 결과로 https://e5d3-118~~~ 의 public주소를 얻을 수 있었다.
 
-### 깃허브 repository 설정
-- 깃허브 레포의 settings -> webhook 에서 **[genkins의public주소]/github-webhook/** 을 payload url로 설정 
+### 🐙 GitHub Repository 설정
+- GitHub 레포의 settings -> webhook 에서 **[jenkins의public주소]/github-webhook/** 을 payload url로 설정 
 ![image](https://github.com/user-attachments/assets/0bef6c5f-eb91-40c3-8c46-7a10136079c9)
 
-### gradle 설정
+### 🛠️ Gradle 설정
 
-### 파이프라인 구성
-- 파이프라인에서 깃허브 레포의 변경을 감지하여 파이프라인을 실행하기 위해 github hook trigger 설정
+### 🔧 파이프라인 구성
+- 파이프라인에서 GitHub 레포의 변경을 감지하여 파이프라인을 실행하기 위해 github hook trigger 설정
 ![image](https://github.com/user-attachments/assets/25981c13-7f73-4a28-93f0-7e258c63bfad)
 
-## 1. CI 구현
-
+## 1️⃣ CI 구현
 ```
 pipeline {
     agent any
@@ -90,26 +93,28 @@ pipeline {
 호스트의 $(pwd)/appjardir 컨테이너의 /var/jenkins_home/appjar 바인드 마운트
 
 
-### jar파일을 복사하는 단계에서 실패
+### ❌ JAR 파일을 복사하는 단계에서 실패
 ![image](https://github.com/user-attachments/assets/c94d4ba5-e82b-414c-855a-6ab6e9ed901e)
-### 그 이유는 cp 명령을 위한 권한이 없었기 때문
+### 🔍 그 이유는 cp 명령을 위한 권한이 없었기 때문
 ![image](https://github.com/user-attachments/assets/73c28dc9-5cfd-461b-9a36-abd4d53a4ec9)
 
 
 ```
-#루트로 들어가기
+# 루트로 들어가기
 docker exec -u root -it 317871cc892b bash 
 
 # appjar 디렉토리에 권한 부여해야함. (copy 명령이 필요하기 때문에 복사 대상 디렉토리에는 읽기 권한이 필요)
 chmod 722 -R /var/jenkins_home/appjar
 ```
-### 그 후 정상 동작을 확인.
+### ✅ 그 후 정상 동작을 확인.
 ![image](https://github.com/user-attachments/assets/c5d83e34-25f1-4459-bea7-4f77b2be52fd)
 
 
-### 콘솔 출력 확인 
-### 정상적으로 gitrepo가 clone이 되었고, build가 성공하였다. 
-### 그 결과물인 jar파일을 바인드 마운트된 디렉토리에 복사하였음
+### 📋 콘솔 출력 확인 
+### ✅ 정상적으로 gitrepo가 clone이 되었고, build가 성공하였다. 
+### 🚚 그 결과물인 jar파일을 바인드 마운트된 디렉토리에 복사되었음
+
+- 그 결과 콘솔 output
 
 ```
 Started by user admin
@@ -187,13 +192,14 @@ Finished: SUCCESS
 ```
 
 jenkins 컨테이너에 바인드 마운트 된 appjar 디렉토리에 성공적으로 복사된 모습
+<br>
 ![image](https://github.com/user-attachments/assets/2f66a1d1-f7d3-4761-8307-41f552191a5b)
 
 그리고 역시 host의 같은 바인드 디렉토리에도 존재하는 모습 확인
+<br>
 ![image](https://github.com/user-attachments/assets/07baac31-47fa-4664-9a53-f3c69d740269)
 
-
-## 2. CD 구현
+## 2️⃣ CD 구현
 
 ```bash
 #!/bin/bash
@@ -231,7 +237,7 @@ echo "배포완료 및 실행됩니다."
 jenkins pipeline에서 이를 실행하려면 jenkins container 에서 host server의 jar파일을 실행하는 명령을 해야하는데 
 이를 위해 ssh 명령을 사용하였다.
 
-### jenkins 컨테이너 내부
+### 🐳 Jenkins 컨테이너 내부
 ```
 apt update
 apt install openssh-server
@@ -243,13 +249,13 @@ ssh-keygen -t rsa -b 4096 -C "your_email@example.com"
 cat ~/.ssh/id_rsa.pub
 ```
 
-### 호스트
+### 🖥️ 호스트
 ```
 # host의  ~/.ssh/authorized_keys에 적용
 echo "복사한 키" >> ~/.ssh/authorized_keys
 ```
 
-### jenkins에서 ssh를 사용하기 위한 플러그인 설치
+### 🔌 Jenkins에서 SSH를 사용하기 위한 플러그인 설치
 - ssh Agent 설치
 ![image](https://github.com/user-attachments/assets/bd0be9c7-2953-4f82-971a-85b244f8242a)
 
@@ -266,7 +272,7 @@ cat ~/.ssh/id_rsa
 ![image](https://github.com/user-attachments/assets/041316e7-4134-450d-be6e-15e6f796b88c)
 
 
-### 파이프라인
+### 🔧 파이프라인
 ```
 pipeline {
     agent any
