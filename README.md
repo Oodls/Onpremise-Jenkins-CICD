@@ -5,7 +5,8 @@
 
 
 ## 2. cicd용 ubuntu vm 에서 빌드된 jar파일을 operation용 vm에서 scp로 받아 실행
-![image](https://github.com/user-attachments/assets/35cde773-7cc5-43e4-a0a4-674669f8aab8)
+![image](https://github.com/user-attachments/assets/3aa9f39f-5947-49fe-90c4-9eb9e5080edd)
+
 
 
 
