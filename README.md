@@ -1,10 +1,10 @@
 # 📚 실습 환경
 
-## 1. 하나의 ubuntu vm 에서 빌드된 jar파일을 받아 실행
+## 🚀 1. 하나의 ubuntu vm 에서 빌드된 jar파일을 받아 실행
 ![image](https://github.com/user-attachments/assets/58a069c8-df0c-418a-9d3c-9662e86ce209)
 
 
-## 2. cicd용 ubuntu vm 에서 빌드된 jar파일을 operation용 vm에서 scp로 받아 실행
+## 🚀 2. cicd용 ubuntu vm 에서 빌드된 jar파일을 operation용 vm에서 scp로 받아 실행
 ![image](https://github.com/user-attachments/assets/3aa9f39f-5947-49fe-90c4-9eb9e5080edd)
 
 
@@ -64,7 +64,7 @@ ngrok http http://localhost:[jenkins 실행 포트]
 project에서 사용한 gradle 버전 8.6으로 설정
 
 
-# 하나의 ubuntu vm 에서 빌드된 jar파일을 받아 실행
+# 🚀 하나의 ubuntu vm 에서 빌드된 jar파일을 받아 실행
 
 ### 🔧 파이프라인 구성
 - 파이프라인에서 GitHub 레포의 변경을 감지하여 파이프라인을 실행하기 위해 github hook trigger 설정
@@ -366,7 +366,7 @@ myuser ALL=(ALL) NOPASSWD: /path/to/your/script.sh
 ![image](https://github.com/user-attachments/assets/960f3545-1ae8-4ee1-b098-a45050751adb)
 
 
-# cicd용 ubuntu vm 에서 빌드된 jar파일을 operation용 vm에서 scp로 받아 실행
+# 🚀 cicd용 ubuntu vm 에서 빌드된 jar파일을 operation용 vm에서 scp로 받아 실행
 
 ### ionotify tool 설치
 
