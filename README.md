@@ -337,11 +337,15 @@ myuser ALL=(ALL) NOPASSWD: /path/to/your/script.sh
 ![image](https://github.com/user-attachments/assets/1bb9e020-96b9-4e93-b6d2-b364c8e728e2)
 
 
-### repo push등의 변경사항 발생 시
-![image](https://github.com/user-attachments/assets/7eaaf6f3-b22c-4b86-bf8c-04c8e0eca98a)
-### 이를 감지
-![image](https://github.com/user-attachments/assets/d52aadff-5df0-4a91-ac5b-9a77fa3bd330)
+### repo push등의 변경사항 발생 시 (c160b54 커밋)
+![image](https://github.com/user-attachments/assets/bfbf0311-994e-4670-9131-c34a2639f728)
+
+### 이를 감지 (c160b54 커밋 감지)
+![image](https://github.com/user-attachments/assets/eec46797-95c5-443c-88a4-4e9976f4b65e)
+
 
 
 
 ![image](https://github.com/user-attachments/assets/592454b9-014a-4da2-a694-1d1875068c66)
+![image](https://github.com/user-attachments/assets/960f3545-1ae8-4ee1-b098-a45050751adb)
+
