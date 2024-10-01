@@ -14,9 +14,9 @@
 
 🔗 Ubuntu host의 일반 폴더와 Jenkins container를 bind 마운트
 
-🏗️ JAR로 빌드해서 마운트된 폴더에 JAR를 복사 → host의 폴더에 복사가 됨
+🏗️ JAR로 빌드해서 마운트된 폴더에 JAR를 복사 → host의 디렉토리에 복사가 됨
 
-🚀 Host 일반 폴더에 JAR 앱을 실행하는 과정을 파이프라인으로 구현
+🚀 Host server 디렉토리의 JAR 앱을 실행하는 과정을 파이프라인으로 구현
 
 
 
