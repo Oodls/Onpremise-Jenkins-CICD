@@ -364,3 +364,120 @@ myuser ALL=(ALL) NOPASSWD: /path/to/your/script.sh
 
 ![image](https://github.com/user-attachments/assets/960f3545-1ae8-4ee1-b098-a45050751adb)
 
+
+# cicd용 ubuntu vm 에서 빌드된 jar파일을 operation용 vm에서 scp로 받아 실행
+
+### ionotify tool 설치
+
+```
+sudo apt-get update
+sudo apt-get install inotify-tools
+```
+
+### change.sh 구성 (실행해 두면 ionotify를 통해 jenkins가 받아온 jar파일의 변경 사항을 감지함)
+```
+#!/bin/bash
+
+# JAR 파일 경로 설정
+JAR_FILE="/home/username/appjardir/SpringApp-0.0.1-SNAPSHOT.jar"
+
+# 실행할 .sh 파일 경로 설정
+SH_FILE="/home/username/appjardir/operation.sh"
+
+# COOLDOWN 중복 실행 방지 대기 시간 (예: 10초)
+COOLDOWN=10
+LAST_RUN=0
+
+# 파일 수정 감지 및 .sh 파일 실행
+inotifywait -m -e close_write "$JAR_FILE" |
+while read -r directory events filename; do
+    CURRENT_TIME=$(date +%s)
+
+    # 마지막 실행 후 지정된 시간이 지났는지 확인
+    if (( CURRENT_TIME - LAST_RUN > COOLDOWN )); then
+        echo "$(date): $filename 파일이 수정되었습니다."  # 수정 시간 로그 추가
+        # .sh 파일 실행
+        bash "$SH_FILE"
+        # 마지막 실행 시간 업데이트
+        LAST_RUN=$CURRENT_TIME
+    else
+        echo "$(date): 쿨다운 기간 중입니다. 실행하지 않음."
+    fi
+done
+
+```
+
+### operation.sh 구성, scp를 통해 jar파일을 operation server로 전달 후 ssh를 통해 원격 실행
+```
+# 파일을 원격 서버에 복사
+scp /home/username/appjardir/SpringApp-0.0.1-SNAPSHOT.jar username@10.0.2.19:/home/username/operation/
+echo "복사완료"
+
+# 복사 후 원격 서버에서 명령어 실행
+ssh username@10.0.2.19 << 'ENDSSH'
+if lsof -i :8999 > /dev/null; then
+  # 8999 포트가 사용 중일 경우 이전 프로세스를 종료
+  kill -9 $(lsof -t -i:8999)
+  echo '정상적으로 종료되었습니다.'
+else
+  echo '포트 8999는 사용 중이지 않습니다.'
+fi
+
+
+cd operation
+
+chmod 777 SpringApp-0.0.1-SNAPSHOT.jar
+nohup java -jar SpringApp-0.0.1-SNAPSHOT.jar --server.port=8999 > app.log 2>&1 &
+
+echo '애플리케이션이 실행되었습니다.'
+ENDSSH
+
+echo "운영서버에 jar 전송 및 실행 완료"
+
+```
+
+### pipeline 설정 변경 (jar파일의 변경을 자동으로 감지하여 실행되므로 직접 jar를 실행하는 stage가 필요 없음)
+- 따라서 repo clone, build, bind mount된 디렉토리에 copy하는것으로 파이프라인을 구성
+```
+pipeline {
+    agent any
+
+    stages {
+        stage('Clone Repository') {
+            steps {
+                git branch: 'main', url: 'https://github.com/leesj000603/jenkins-test2'
+            }
+        }
+          
+        stage('Build') {
+            steps {
+                dir('./SpringApp') {                   
+                    sh 'chmod +x gradlew'                    
+                    sh './gradlew clean build -x test'
+                    sh 'echo $WORKSPACE'
+                }
+            }
+        }
+        
+        stage('Copy jar') { 
+            steps {
+                script {
+                    def jarFile = 'SpringApp/build/libs/SpringApp-0.0.1-SNAPSHOT.jar'                   
+                    sh "cp ${jarFile} /var/jenkins_home/appjar/"
+                }
+            }
+        }
+    }
+}
+```
+### 변경사항 커밋
+![image](https://github.com/user-attachments/assets/c778955c-ff38-4c98-81be-0eecb718666c)
+
+### 이를 감지하고 jenkins가 빌드 진행
+![image](https://github.com/user-attachments/assets/1daa7baa-2d15-4b49-b0c2-d6ffcc99bcfa)
+
+### operationserver에서 반영된 변경사항으로 실행되는 모습
+![image](https://github.com/user-attachments/assets/6f2287bf-745e-41d7-bd36-6044eb2aac78)
+
+
+
