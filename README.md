@@ -1,5 +1,9 @@
 # 📚 실습 환경
 
+## 최종 결과
+![image](https://github.com/user-attachments/assets/5989d89f-0a5a-40c7-aade-25ac4fb48dda)
+
+
 ## 🐳 Jenkins Container
 
 🔗 Ubuntu host의 일반 폴더와 Jenkins container를 bind 마운트
