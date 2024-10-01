@@ -474,8 +474,16 @@ pipeline {
 ### 변경사항 커밋
 ![image](https://github.com/user-attachments/assets/c778955c-ff38-4c98-81be-0eecb718666c)
 
+
 ### 이를 감지하고 jenkins가 빌드 진행
 ![image](https://github.com/user-attachments/assets/1daa7baa-2d15-4b49-b0c2-d6ffcc99bcfa)
+
+### cicd vm에서 change.sh을 실행하고 있어 jar파일의 변동을 감지.
+![image](https://github.com/user-attachments/assets/1f6616d4-7943-46ad-a8b3-531f33549d46)
+
+### change.sh는 jar파일의 변동 시 scp로 operation vm에 jar를 전송하고 ssh로 실행 명령,
+![image](https://github.com/user-attachments/assets/2ae9d8bd-f100-4d54-a7ba-ab7c012d2220)
+
 
 ### operationserver에서 반영된 변경사항으로 실행되는 모습
 ![image](https://github.com/user-attachments/assets/6f2287bf-745e-41d7-bd36-6044eb2aac78)
