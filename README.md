@@ -13,7 +13,8 @@
 
 
 - ## 🚀 2. 빌드된 jar파일을 cicd용 ubuntu vm 에서 operation용 vmd으로 scp로 전송하여 실행
-    ![image](https://github.com/user-attachments/assets/4b8018ff-ca59-4a26-8731-83a07766c31e)
+    ![image](https://github.com/user-attachments/assets/b0b26ee1-3447-4b3d-84fe-1103789caf70)
+
 
 
 
