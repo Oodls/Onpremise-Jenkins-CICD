@@ -342,3 +342,5 @@ myuser ALL=(ALL) NOPASSWD: /path/to/your/script.sh
 ### 이를 감지
 ![image](https://github.com/user-attachments/assets/29674090-2c00-4694-935d-d249d479bc92)
 
+
+![image](https://github.com/user-attachments/assets/592454b9-014a-4da2-a694-1d1875068c66)
