@@ -1,7 +1,7 @@
 # 📚 실습 환경
 
 ## 1. 하나의 ubuntu vm 에서 빌드된 jar파일을 받아 실행
-![image](https://github.com/user-attachments/assets/3d527af2-bd5e-4046-9720-bad982d5991e)
+![image](https://github.com/user-attachments/assets/58a069c8-df0c-418a-9d3c-9662e86ce209)
 
 
 ## 2. cicd용 ubuntu vm 에서 빌드된 jar파일을 operation용 vm에서 scp로 받아 실행
@@ -17,7 +17,8 @@
 
 🚀 Host 일반 폴더에 JAR 앱을 실행하는 과정을 파이프라인으로 구현
 
-## 🖥️ Host 
+
+
 
 ### 0️⃣ 실행환경 준비
 ```
@@ -58,6 +59,11 @@ ngrok http http://localhost:[jenkins 실행 포트]
 ![image](https://github.com/user-attachments/assets/0bef6c5f-eb91-40c3-8c46-7a10136079c9)
 
 ### 🛠️ Gradle 설정
+![image](https://github.com/user-attachments/assets/5f5d8424-de45-4833-ac02-6a9e7456df61)
+project에서 사용한 gradle 버전 8.6으로 설정
+
+
+# 하나의 ubuntu vm 에서 빌드된 jar파일을 받아 실행
 
 ### 🔧 파이프라인 구성
 - 파이프라인에서 GitHub 레포의 변경을 감지하여 파이프라인을 실행하기 위해 github hook trigger 설정
