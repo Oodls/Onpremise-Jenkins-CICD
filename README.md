@@ -1,10 +1,12 @@
 # 📚 실습 환경
 
 ## 1. 하나의 ubuntu vm 에서 빌드된 jar파일을 받아 실행
-![image](https://github.com/user-attachments/assets/ebcd0fc8-3ca9-4d9d-825f-ecd1e100e8c4)
+![image](https://github.com/user-attachments/assets/3d527af2-bd5e-4046-9720-bad982d5991e)
+
 
 ## 2. cicd용 ubuntu vm 에서 빌드된 jar파일을 operation용 vm에서 scp로 받아 실행
-![image](https://github.com/user-attachments/assets/5989d89f-0a5a-40c7-aade-25ac4fb48dda)
+![image](https://github.com/user-attachments/assets/35cde773-7cc5-43e4-a0a4-674669f8aab8)
+
 
 
 ## 🐳 Jenkins Container
