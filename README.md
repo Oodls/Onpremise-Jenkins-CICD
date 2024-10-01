@@ -1,12 +1,12 @@
 # 📚 실습 환경
 
 - ## 🚀 1. 빌드된 jar파일을 하나의 ubuntu vm 에서 받아 실행
-![image](https://github.com/user-attachments/assets/6352f8eb-ba7a-4857-8bb5-77a213409119)
+    ![image](https://github.com/user-attachments/assets/6352f8eb-ba7a-4857-8bb5-77a213409119)
 
 
 
 - ## 🚀 2. 빌드된 jar파일을 cicd용 ubuntu vm 에서 operation용 vmd으로 scp로 전송하여 실행
-![image](https://github.com/user-attachments/assets/4b8018ff-ca59-4a26-8731-83a07766c31e)
+    ![image](https://github.com/user-attachments/assets/4b8018ff-ca59-4a26-8731-83a07766c31e)
 
 
 
@@ -112,9 +112,9 @@
 
 
 - ### ❌ JAR 파일을 복사하는 단계에서 실패
-![image](https://github.com/user-attachments/assets/c94d4ba5-e82b-414c-855a-6ab6e9ed901e)
+    ![image](https://github.com/user-attachments/assets/c94d4ba5-e82b-414c-855a-6ab6e9ed901e)
 - ### 🔍 그 이유는 cp 명령을 위한 권한이 없었기 때문
-![image](https://github.com/user-attachments/assets/73c28dc9-5cfd-461b-9a36-abd4d53a4ec9)
+    ![image](https://github.com/user-attachments/assets/73c28dc9-5cfd-461b-9a36-abd4d53a4ec9)
 
 
     ```
@@ -125,7 +125,7 @@
     chmod 722 -R /var/jenkins_home/appjar
     ```
 - ### ✅ 그 후 정상 동작을 확인.
-![image](https://github.com/user-attachments/assets/c5d83e34-25f1-4459-bea7-4f77b2be52fd)
+    ![image](https://github.com/user-attachments/assets/c5d83e34-25f1-4459-bea7-4f77b2be52fd)
 
 
 - ### 📋 콘솔 출력 확인 
@@ -210,14 +210,11 @@
     ```
 
 - ### jenkins 컨테이너에 바인드 마운트 된 appjar 디렉토리에 성공적으로 복사된 모습
-  
-<br>
+  ![image](https://github.com/user-attachments/assets/2f66a1d1-f7d3-4761-8307-41f552191a5b)
 
-![image](https://github.com/user-attachments/assets/2f66a1d1-f7d3-4761-8307-41f552191a5b)
-
+    
 - ### 그리고 역시 host의 같은 바인드 디렉토리에도 존재하는 모습 확인
-    <br>
-![image](https://github.com/user-attachments/assets/07baac31-47fa-4664-9a53-f3c69d740269)
+  ![image](https://github.com/user-attachments/assets/07baac31-47fa-4664-9a53-f3c69d740269)
 
 - ## 2️⃣ CD 구현
 
@@ -353,20 +350,19 @@
     ```
 
 
-![image](https://github.com/user-attachments/assets/85161c92-d575-4d28-8e6f-90094a93f719)
+    ![image](https://github.com/user-attachments/assets/85161c92-d575-4d28-8e6f-90094a93f719)
 - ### 이후 정상적으로 실행까지 성공!
-
-![image](https://github.com/user-attachments/assets/1bb9e020-96b9-4e93-b6d2-b364c8e728e2)
+    ![image](https://github.com/user-attachments/assets/1bb9e020-96b9-4e93-b6d2-b364c8e728e2)
 
 
 - ### repo push등의 변경사항 발생 시 (c160b54 커밋)
-![image](https://github.com/user-attachments/assets/bfbf0311-994e-4670-9131-c34a2639f728)
+    ![image](https://github.com/user-attachments/assets/bfbf0311-994e-4670-9131-c34a2639f728)
 
 - ### 이를 감지 (c160b54 커밋 감지)
-![image](https://github.com/user-attachments/assets/eec46797-95c5-443c-88a4-4e9976f4b65e)
+    ![image](https://github.com/user-attachments/assets/eec46797-95c5-443c-88a4-4e9976f4b65e)
 
 
-![image](https://github.com/user-attachments/assets/960f3545-1ae8-4ee1-b098-a45050751adb)
+    ![image](https://github.com/user-attachments/assets/960f3545-1ae8-4ee1-b098-a45050751adb)
 
 
 # 🚀 빌드된 jar파일을 cicd용 ubuntu vm 에서 operation용 vmd으로 scp로 전송하여 실행
@@ -390,7 +386,7 @@
         ifconfig
         ```
 
-      ![image](https://github.com/user-attachments/assets/f9ed5cae-37a9-4335-9e87-e6dd312e310c)
+        ![image](https://github.com/user-attachments/assets/f9ed5cae-37a9-4335-9e87-e6dd312e310c)
 
 - ## scripts
 
@@ -500,21 +496,21 @@
 ## 실행 과정
 
 - ### 변경사항 커밋
-![image](https://github.com/user-attachments/assets/c778955c-ff38-4c98-81be-0eecb718666c)
+  ![image](https://github.com/user-attachments/assets/c778955c-ff38-4c98-81be-0eecb718666c)
 
 
 - ### 이를 감지하고 jenkins가 빌드 진행
-![image](https://github.com/user-attachments/assets/1daa7baa-2d15-4b49-b0c2-d6ffcc99bcfa)
+  ![image](https://github.com/user-attachments/assets/1daa7baa-2d15-4b49-b0c2-d6ffcc99bcfa)
 
 - ### cicd vm에서 change.sh을 실행하고 있어 jar파일의 변동을 감지.
-![image](https://github.com/user-attachments/assets/1f6616d4-7943-46ad-a8b3-531f33549d46)
+  ![image](https://github.com/user-attachments/assets/1f6616d4-7943-46ad-a8b3-531f33549d46)
 
 - ### change.sh는 jar파일의 변동 시 scp로 operation vm에 jar를 전송하고 ssh로 실행 명령,
-![image](https://github.com/user-attachments/assets/2ae9d8bd-f100-4d54-a7ba-ab7c012d2220)
+  ![image](https://github.com/user-attachments/assets/2ae9d8bd-f100-4d54-a7ba-ab7c012d2220)
 
 
 - ### operationserver에서 반영된 변경사항으로 실행되는 모습
-![image](https://github.com/user-attachments/assets/6f2287bf-745e-41d7-bd36-6044eb2aac78)
+  ![image](https://github.com/user-attachments/assets/6f2287bf-745e-41d7-bd36-6044eb2aac78)
 
 
 
