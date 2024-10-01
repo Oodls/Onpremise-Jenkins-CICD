@@ -308,7 +308,11 @@ pipeline {
                     // SSH를 통해 호스트에서 JAR 파일을 실행
                     def host = 'username@10.0.2.15' // 호스트의 사용자 이름과 IP 주소
                     def jarPath = '/home/username/appjardir/SpringApp-0.0.1-SNAPSHOT.jar'
-                    sh "ssh -o StrictHostKeyChecking=no ${host} 'nohup java -jar ${jarPath} > /home/username/appjardir/logs/output.log 2>&1 &'"
+                    # 설정했던 sshagent를 등록
+                    sshagent(['myjenkins-10.0.2.15-ssh-key']) { 
+                        // JAR 파일 실행
+                        sh "ssh -o StrictHostKeyChecking=no ${host} 'nohup java -jar ${jarPath} > /home/username/appjardir/logs/output.log 2>&1 &'"
+                    }
                 }
             }
         }
