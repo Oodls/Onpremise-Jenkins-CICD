@@ -344,8 +344,5 @@ myuser ALL=(ALL) NOPASSWD: /path/to/your/script.sh
 ![image](https://github.com/user-attachments/assets/eec46797-95c5-443c-88a4-4e9976f4b65e)
 
 
-
-
-![image](https://github.com/user-attachments/assets/592454b9-014a-4da2-a694-1d1875068c66)
 ![image](https://github.com/user-attachments/assets/960f3545-1ae8-4ee1-b098-a45050751adb)
 
