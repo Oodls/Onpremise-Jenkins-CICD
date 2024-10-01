@@ -46,7 +46,7 @@ ngrok http http://localhost:[jenkins 실행 포트]
 
 ![image](https://github.com/user-attachments/assets/2d9b53bd-5f29-4b11-bc6f-0644f26999ad)
 <br>
-그 결과로 https://e5d3-118~~~ 의 public주소를 얻을 수 있었다.
+그 결과로 jenkins에 대한 public 주소로 https://e5d3-118~~~ 의 public주소를 얻을 수 있었다.
 
 ### 🐙 GitHub Repository 설정
 - GitHub 레포의 settings -> webhook 에서 **[jenkins의public주소]/github-webhook/** 을 payload url로 설정 
