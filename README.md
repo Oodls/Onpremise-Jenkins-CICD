@@ -340,7 +340,8 @@ myuser ALL=(ALL) NOPASSWD: /path/to/your/script.sh
 ### repo push등의 변경사항 발생 시
 ![image](https://github.com/user-attachments/assets/7eaaf6f3-b22c-4b86-bf8c-04c8e0eca98a)
 ### 이를 감지
-![image](https://github.com/user-attachments/assets/29674090-2c00-4694-935d-d249d479bc92)
+![image](https://github.com/user-attachments/assets/d52aadff-5df0-4a91-ac5b-9a77fa3bd330)
+
 
 
 ![image](https://github.com/user-attachments/assets/592454b9-014a-4da2-a694-1d1875068c66)
