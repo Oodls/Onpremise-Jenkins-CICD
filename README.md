@@ -1,11 +1,13 @@
 # 📚 실습 환경
 
 ## 🚀 1. 하나의 ubuntu vm 에서 빌드된 jar파일을 받아 실행
-![image](https://github.com/user-attachments/assets/58a069c8-df0c-418a-9d3c-9662e86ce209)
+![image](https://github.com/user-attachments/assets/6352f8eb-ba7a-4857-8bb5-77a213409119)
+
 
 
 ## 🚀 2. cicd용 ubuntu vm 에서 빌드된 jar파일을 operation용 vm에서 scp로 받아 실행
-![image](https://github.com/user-attachments/assets/3aa9f39f-5947-49fe-90c4-9eb9e5080edd)
+![image](https://github.com/user-attachments/assets/4b8018ff-ca59-4a26-8731-83a07766c31e)
+
 
 
 
