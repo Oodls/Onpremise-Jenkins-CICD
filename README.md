@@ -7,6 +7,9 @@
 
 # 📚 실습 환경
 
+<img src="https://img.shields.io/badge/Jenkins-D24939?style=for-the-badge&logo=Jenkins&logoColor=white"/>  <img src="https://img.shields.io/badge/ngrok-1F1E37?style=for-the-badge&logo=ngrok&logoColor=white"/> <img src="https://img.shields.io/badge/github-181717?style=for-the-badge&logo=github&logoColor=white"/> <img src="https://img.shields.io/badge/Gradle-02303A.svg?style=for-the-badge&logo=Gradle&logoColor=white"/> <img src="https://img.shields.io/badge/docker-%230db7ed.svg?style=for-the-badge&logo=docker&logoColor=white"/> <img src="https://img.shields.io/badge/VirtualBox-183A61?logo=virtualbox&logoColor=white&style=for-the-badge"/> <img src="https://img.shields.io/badge/Ubuntu-E95420?style=for-the-badge&logo=ubuntu&logoColor=white"/>
+
+
 - ## 🚀 1. 빌드된 jar파일을 하나의 ubuntu vm 에서 받아 실행
     ![image](https://github.com/user-attachments/assets/6352f8eb-ba7a-4857-8bb5-77a213409119)
 
@@ -15,9 +18,7 @@
 - ## 🚀 2. 빌드된 jar파일을 cicd용 ubuntu vm 에서 operation용 vmd으로 scp로 전송하여 실행
     ![image](https://github.com/user-attachments/assets/b0b26ee1-3447-4b3d-84fe-1103789caf70)
 
-
-
-
+ 
 
 
 - ### 🐳 Jenkins Container 설명
